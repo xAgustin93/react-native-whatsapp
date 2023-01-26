@@ -70,7 +70,7 @@ export function ChatScreen() {
       {!messages ? (
         <LoadingScreen />
       ) : (
-        <View flex>
+        <View style={{ flex: 1 }}>
           <ListMessages messages={messages} />
           <ChatForm chatId={chatId} />
         </View>

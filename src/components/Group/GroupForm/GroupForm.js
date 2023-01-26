@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Keyboard } from "react-native";
+import { View, Keyboard, Platform } from "react-native";
 import { Input, IconButton, Icon } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useFormik } from "formik";
@@ -19,7 +19,10 @@ export function GroupForm(props) {
   useEffect(() => {
     const showKeyboardSub = Keyboard.addListener("keyboardDidShow", (e) => {
       const { startCoordinates } = e;
-      setKeyboardHeight(startCoordinates.height + 65);
+
+      if (Platform.OS === "ios") {
+        setKeyboardHeight(startCoordinates.height + 65);
+      }
     });
 
     const hideKeyboardSub = Keyboard.addListener("keyboardDidHide", () => {

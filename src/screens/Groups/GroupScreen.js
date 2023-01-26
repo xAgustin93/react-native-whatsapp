@@ -72,7 +72,7 @@ export function GroupScreen() {
     <>
       <HeaderGroup groupId={groupId} />
 
-      <View flex>
+      <View style={{ flex: 1 }}>
         <ListMessages messages={messages} />
         <GroupForm groupId={groupId} />
       </View>
